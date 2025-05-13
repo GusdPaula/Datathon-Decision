@@ -1,0 +1,10 @@
+{
+    "informacoes_basicas": {
+      "descricao": "Vaga para desenvolvedor backend com foco em Python e Django."
+    },
+    "perfil_vaga": {
+      "atividades": "Desenvolvimento de APIs REST, manutenção de sistemas legados.",
+      "competencias_tecnicas": ["Python", "Django", "PostgreSQL"]
+    }
+  }
+  
