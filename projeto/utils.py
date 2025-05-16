@@ -24,7 +24,9 @@ import torch
 import requests
 import zipfile
 import io
+import nltk
 warnings.simplefilter("ignore")
+nltk.download('stopwords')
 
 from pathlib import Path
 
