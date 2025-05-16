@@ -25,6 +25,9 @@ import requests
 import zipfile
 import io
 import nltk
+
+NLTK_DATA="./resources/nltk_data_dir/"
+
 warnings.simplefilter("ignore")
 nltk.download('stopwords')
 
