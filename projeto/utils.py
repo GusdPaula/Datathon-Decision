@@ -36,7 +36,7 @@ from pathlib import Path
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
 
 credentials = service_account.Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"]
+    st.secrets["GCP_SERVICE_ACCOUNT"]
 )
 
 
