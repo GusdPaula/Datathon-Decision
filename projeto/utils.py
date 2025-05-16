@@ -35,8 +35,9 @@ from pathlib import Path
 # Load Sentence Transformer model (Portuguese-compatible)
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
 
-service_account_info = json.loads(os.environ["GCP_SERVICE_ACCOUNT"])
-credentials = service_account.Credentials.from_service_account_info(service_account_info)
+credentials = service_account.Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"]
+)
 
 
 
