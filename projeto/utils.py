@@ -29,9 +29,9 @@ warnings.simplefilter("ignore")
 from pathlib import Path
 
 # Load applicants database once
-with open("applicants.json", "r", encoding="utf-8") as f:
+'''with open("applicants.json", "r", encoding="utf-8") as f:
     applicants_dict = json.load(f)
-
+'''
 # Load Sentence Transformer model (Portuguese-compatible)
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
 try:
