@@ -17,22 +17,31 @@ from google.cloud import bigquery
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sentence_transformers import util as util_trans
-import json
 import numpy as np
 import joblib
 import torch
+import requests
+import zipfile
+import io
+import json
 warnings.simplefilter("ignore")
 
 from pathlib import Path
 
 # Load applicants database once
-with open("applicants.json", "r", encoding="utf-8") as f:
-    applicants_dict = json.load(f)
+
+with open("applicants.pkl", "rb") as f:
+    applicants_dict = pickle.load(f)
 
 # Load Sentence Transformer model (Portuguese-compatible)
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-service_account_info = json.loads(os.environ["GCP_SERVICE_ACCOUNT"])
-credentials = service_account.Credentials.from_service_account_info(service_account_info)
+try:
+    service_account_info = json.loads(os.environ["GCP_SERVICE_ACCOUNT"])
+    credentials = service_account.Credentials.from_service_account_info(service_account_info)
+except KeyError:
+    credentials = service_account.Credentials.from_service_account_file(r'C:\Users\vc\Documents\fiap\Datathon-Decision\tech-chlg-5c139f98b4ec.json')
+
+
 
 project_id = 'tech-chlg'
 client = bigquery.Client(credentials= credentials,project=project_id)
