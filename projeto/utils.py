@@ -25,8 +25,6 @@ import requests
 import zipfile
 import io
 
-NLTK_DATA="./resources/nltk_data_dir/"
-
 warnings.simplefilter("ignore")
 
 
@@ -158,7 +156,7 @@ job_embeddings = job_data["job_embeddings"]
 def preprocess(text):
     import nltk
     nltk.download('stopwords')
-    
+    nltk.download('punkt_tab')
     import re, string
     from nltk.corpus import stopwords
     from nltk.tokenize import word_tokenize
