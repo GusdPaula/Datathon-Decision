@@ -17,23 +17,20 @@ from google.cloud import bigquery
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sentence_transformers import util as util_trans
+import json
 import numpy as np
 import joblib
 import torch
 import requests
 import zipfile
 import io
-import json
 warnings.simplefilter("ignore")
-
-current_dir = os.path.dirname(os.path.abspath(__file__))
 
 from pathlib import Path
 
 # Load applicants database once
-applicants_path = os.path.join(current_dir, "applicants.pkl")
-with open(applicants_path, "rb") as f:
-    applicants_dict = pickle.load(f)
+with open("applicants.json", "r", encoding="utf-8") as f:
+    applicants_dict = json.load(f)
 
 # Load Sentence Transformer model (Portuguese-compatible)
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
