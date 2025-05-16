@@ -156,11 +156,13 @@ job_embeddings = job_data["job_embeddings"]
 
 # Function that will process the CV text/ Função que processará o texto do CV.
 def preprocess(text):
+    import nltk
+    nltk.download('stopwords')
+    
     import re, string
     from nltk.corpus import stopwords
     from nltk.tokenize import word_tokenize
-    import nltk
-    nltk.download('stopwords')
+    
     stop_words = set(stopwords.words('portuguese'))
     
     text = text.lower()
