@@ -24,12 +24,11 @@ import torch
 import requests
 import zipfile
 import io
-import nltk
 
 NLTK_DATA="./resources/nltk_data_dir/"
 
 warnings.simplefilter("ignore")
-nltk.download('stopwords')
+
 
 from pathlib import Path
 
@@ -160,6 +159,8 @@ def preprocess(text):
     import re, string
     from nltk.corpus import stopwords
     from nltk.tokenize import word_tokenize
+    import nltk
+    nltk.download('stopwords')
     stop_words = set(stopwords.words('portuguese'))
     
     text = text.lower()
