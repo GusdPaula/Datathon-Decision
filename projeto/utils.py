@@ -26,11 +26,13 @@ import io
 import json
 warnings.simplefilter("ignore")
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
 from pathlib import Path
 
 # Load applicants database once
-
-with open("applicants.pkl", "rb") as f:
+applicants_path = os.path.join(current_dir, "applicants.pkl")
+with open(applicants_path, "rb") as f:
     applicants_dict = pickle.load(f)
 
 # Load Sentence Transformer model (Portuguese-compatible)
