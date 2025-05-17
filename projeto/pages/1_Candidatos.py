@@ -36,4 +36,4 @@ for codigo in codigos[:st.session_state.visible_count]:
 if st.session_state.visible_count < len(codigos):
     if st.button("Ver mais candidatos"):
         st.session_state.visible_count += 10
-        st.experimental_rerun()  # recarrega a página para mostrar mais candidatos
+        st.rerun()  # recarrega a página para mostrar mais candidatos
