@@ -24,17 +24,12 @@ import torch
 import requests
 import zipfile
 import io
-
-
+from applicants_dict import applicants_dict
 warnings.simplefilter("ignore")
 
-
+applicants_dict = applicants_dict
 from pathlib import Path
 
-# Load applicants database once
-'''with open("applicants.json", "r", encoding="utf-8") as f:
-    applicants_dict = json.load(f)
-'''
 # Load Sentence Transformer model (Portuguese-compatible)
 model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
 
